@@ -10,7 +10,7 @@ def translate(text, src, dest):
   return translator.translate(text, src=src, dest=dest)
 
 # Read data from json file
-with open('Promise.json', encoding="utf-8") as json_file:
+with open('../Promise.json', encoding="utf-8") as json_file:
     data = json.load(json_file)
 
 for chapter in data:
@@ -21,5 +21,5 @@ for chapter in data:
           promise["Eng"] = translate(promise["Dhiv"], "dv", "en").text
 
 # Write data to json file
-with open('Promise-translated.json', 'w', encoding="utf-8") as outfile:
+with open('./out/Promise-translated.json', 'w', encoding="utf-8") as outfile:
     json.dump(data, outfile, indent=2, ensure_ascii=False)
